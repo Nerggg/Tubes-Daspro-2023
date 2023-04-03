@@ -1,3 +1,27 @@
+def login():
+    global usernames, passwords, amount
+    usern = str(input("Username: "))
+    passw = str(input("Password: "))
+    if usern not in usernames:
+        print("Username tidak terdaftar!")
+    elif usern in usernames and passw not in passwords:
+        print("Password salah!")
+    else:
+        print(f"Selamat datang, {usern}!")
+
+def save():
+    global usernames, passwords, roles
+    # membuka file csv untuk ditulis
+    with open('user.csv', mode='w') as file:
+
+    # menuliskan header
+    file.write('username;password;role\n')
+
+    # menuliskan data
+    for i in range(len(username)):
+        row = usernames[i] + ';' + passwords[i] + ';' + roles[i] + '\n'
+        file.write(row)
+
 # Buka file CSV dalam mode baca
 with open('user.csv', 'r') as csv_file:
     # Baca isi file
@@ -36,3 +60,16 @@ with open('user.csv', 'r') as csv_file:
         else:
             current_column += char
 
+# Mendapatkan jumlah akun
+amount = int(0)
+for i in usernames:
+    amount += 1
+
+
+print(">>>",end="")
+
+opsi = input()
+if opsi == "login":
+    login()
+elif opsi == "save":
+    save()
