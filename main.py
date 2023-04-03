@@ -1,13 +1,24 @@
 def login():
-    global usernames, passwords, amount
-    usern = str(input("Username: "))
-    passw = str(input("Password: "))
-    if usern not in usernames:
-        print("Username tidak terdaftar!")
-    elif usern in usernames and passw not in passwords:
-        print("Password salah!")
+    global usernames, passwords, amount, usern
+    if usern != "null":
+        print("Anda harus logout terlebih dahulu sebelum login ke akun lain!")
     else:
-        print(f"Selamat datang, {usern}!")
+        usern = str(input("Username: "))
+        passw = str(input("Password: "))
+        if usern not in usernames:
+            print("Username tidak terdaftar!")
+        elif usern in usernames and passw not in passwords:
+            print("Password salah!")
+        else:
+            print(f"Selamat datang, {usern}!")
+
+def logout():
+    global usern
+    if usern == "null":
+        print("Anda belum login!")
+    else:
+        print("Logout berhasil!")
+        usern = "null"
 
 def save():
     global usernames, passwords, roles
@@ -15,12 +26,12 @@ def save():
     with open('user.csv', mode='w') as file:
 
     # menuliskan header
-    file.write('username;password;role\n')
+        file.write('username;password;role\n')
 
     # menuliskan data
-    for i in range(len(username)):
-        row = usernames[i] + ';' + passwords[i] + ';' + roles[i] + '\n'
-        file.write(row)
+        for i in range(len(username)):
+            row = usernames[i] + ';' + passwords[i] + ';' + roles[i] + '\n'
+            file.write(row)
 
 # Buka file CSV dalam mode baca
 with open('user.csv', 'r') as csv_file:
@@ -60,16 +71,20 @@ with open('user.csv', 'r') as csv_file:
         else:
             current_column += char
 
+# Deklarasi username kosong
+usern = str("null")
+
 # Mendapatkan jumlah akun
 amount = int(0)
 for i in usernames:
     amount += 1
 
+while True:
+    opsi = input(">>> ")
 
-print(">>>",end="")
-
-opsi = input()
-if opsi == "login":
-    login()
-elif opsi == "save":
-    save()
+    if opsi == "login":
+        login()
+    elif opsi == "logout":
+        logout()
+    elif opsi == "save":
+        save()
