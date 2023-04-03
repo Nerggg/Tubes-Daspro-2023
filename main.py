@@ -20,18 +20,55 @@ def logout():
         print("Logout berhasil!")
         usern = "null"
 
-def save():
+def summonjin():
     global usernames, passwords, roles
-    # membuka file csv untuk ditulis
-    with open('user.csv', mode='w') as file:
+    print("Jenis jin yang dapat dipanggil:")
+    print("(1) Pengumpul - bertugas mengumpulkan bahan bangunan")
+    print("(2) Pembangun - bertugas membangun candi")
+    while True:
+        opt = int(input("\nMasukkan nomor jenis jin yang ingin dipanggil: "))
+        if opt == 1:
+            print("\nMemilih jin \"Pengumpul\"")
+            roles.append("jin_pengumpul")
+            break
+        elif opt == 2:
+            print("\nMemilih jin \"Pembangun\"")
+            roles.append("jin_pembangun")
+            break
+        else:
+            print(f"\nTidak ada jenis jin bernomor: \"{opt}\"!")
 
-    # menuliskan header
-        file.write('username;password;role\n')
+    namajin = input("\nMasukkan username jin: ")
+    while namajin in usernames:
+        print(f"\nUsername \"{namajin}\" sudah diambil!")
+        namajin = input("\nMasukkan username jin: ")
+    passjin = input("Masukkan password jin: ")
+    passlen = 0
+    for i in passjin:
+        passlen += 1
+    while passlen < 5 or passlen > 25:
+        print("\nPassword panjangnya harus 5-25 karakter!")
+        passjin = input("Masukkan password jin: ")
+        passlen = 0
+        for i in passjin:
+            passlen += 1
+    print("\nMengumpulkan sesajen...")
+    print("Menyerahkan sesajen...")
+    print("Membacakan mantra...")
+    print(f"\nJin {namajin} berhasil dipanggil!")
+    usernames.append(namajin)
+    passwords.append(passjin)
+
+def save():
+    global usernames, passwords, roles, amount
+    # membuka file csv untuk ditulis
+    with open('user.csv', mode = 'w') as file:
 
     # menuliskan data
-        for i in range(len(username)):
+        for i in range(amount):
             row = usernames[i] + ';' + passwords[i] + ';' + roles[i] + '\n'
             file.write(row)
+            print("saving")
 
 # Buka file CSV dalam mode baca
 with open('user.csv', 'r') as csv_file:
@@ -74,17 +111,24 @@ with open('user.csv', 'r') as csv_file:
 # Deklarasi username kosong
 usern = str("null")
 
-# Mendapatkan jumlah akun
-amount = int(0)
-for i in usernames:
-    amount += 1
-
 while True:
+    # Mendapatkan jumlah akun
+    amount = int(0)
+    for i in usernames:
+        amount += 1
+
     opsi = input(">>> ")
 
     if opsi == "login":
         login()
     elif opsi == "logout":
         logout()
+    elif opsi == "summonjin":
+        summonjin()
     elif opsi == "save":
         save()
+    elif opsi == "print":
+        print(usernames)
+        print(passwords)
+        print(roles)
+        print(amount)
