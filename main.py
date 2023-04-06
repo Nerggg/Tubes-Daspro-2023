@@ -67,16 +67,45 @@ def hapusjin():
             print(f"Apakah anda yakin ingin menghapus jin dengan username {hapus} (Y/N)?", end = " ")
             opt = str(input())
             if opt == "y" or opt == "Y":
-                print("Jin telah berhasil dihapus dari alam gaib.")
+                print("\nJin telah berhasil dihapus dari alam gaib.")
                 passwords.pop(usernames.index(hapus))
                 roles.pop(usernames.index(hapus))
                 usernames.remove(hapus)
                 break
             elif opt == "n" or opt == "N":
-                print("Penghapusan jin dibatalkan.")
+                print("\nPenghapusan jin dibatalkan.")
                 break
     else:
         print("Tidak ada jin dengan username tersebut.")
+
+def ubahjin():
+    global usernames, passwords, roles, amount
+    ubah = str(input("Masukkan username jin : "))
+    if ubah in usernames:
+        if roles[usernames.index(ubah)] == "jin_pengumpul":
+            while True:
+                opt = str(input("Jin ini bertipe \"Pengumpul\". Yakin ingin mengubah ke tipe \"Pembangun\" (Y/N)? "))
+                if opt == "y" or opt == "Y":
+                    print("\nJin telah berhasil diubah.")
+                    roles[usernames.index(ubah)] = "jin_pembangun"
+                    break
+                elif opt == "n" or opt == "N":
+                    print("\nPengubahan jin dibatalkan.")
+                    break
+        elif roles[usernames.index(ubah)] == "jin_pembangun":
+            while True:
+                opt = str(input("Jin ini bertipe \"Pembangun\". Yakin ingin mengubah ke tipe \"Pengumpul\" (Y/N)? "))
+                if opt == "y" or opt == "Y":
+                    print("\nJin telah berhasil diubah.")
+                    roles[usernames.index(ubah)] = "jin_pengumpul"
+                    break
+                elif opt == "n" or opt == "N":
+                    print("\nPengubahan jin dibatalkan.")
+                    break
+    else:
+        print("Tidak ada jin dengan username tersebut.")
+
+
 
 def save():
     global usernames, passwords, roles, amount
@@ -87,7 +116,6 @@ def save():
         for i in range(amount):
             row = usernames[i] + ';' + passwords[i] + ';' + roles[i] + '\n'
             file.write(row)
-            print("saving")
 
 # Buka file CSV dalam mode baca
 with open('user.csv', 'r') as csv_file:
@@ -146,6 +174,8 @@ while True:
         summonjin()
     elif opsi == "hapusjin":
         hapusjin()
+    elif opsi == "ubahjin":
+        ubahjin()
     elif opsi == "save":
         save()
     elif opsi == "print":
