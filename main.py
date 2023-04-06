@@ -59,6 +59,25 @@ def summonjin():
     usernames.append(namajin)
     passwords.append(passjin)
 
+def hapusjin():
+    global usernames, passwords, roles, amount
+    hapus = str(input("Masukkan username jin : "))
+    if hapus in usernames:
+        while True:
+            print(f"Apakah anda yakin ingin menghapus jin dengan username {hapus} (Y/N)?", end = " ")
+            opt = str(input())
+            if opt == "y" or opt == "Y":
+                print("Jin telah berhasil dihapus dari alam gaib.")
+                passwords.pop(usernames.index(hapus))
+                roles.pop(usernames.index(hapus))
+                usernames.remove(hapus)
+                break
+            elif opt == "n" or opt == "N":
+                print("Penghapusan jin dibatalkan.")
+                break
+    else:
+        print("Tidak ada jin dengan username tersebut.")
+
 def save():
     global usernames, passwords, roles, amount
     # membuka file csv untuk ditulis
@@ -125,6 +144,8 @@ while True:
         logout()
     elif opsi == "summonjin":
         summonjin()
+    elif opsi == "hapusjin":
+        hapusjin()
     elif opsi == "save":
         save()
     elif opsi == "print":
