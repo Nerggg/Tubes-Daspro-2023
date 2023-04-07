@@ -122,35 +122,64 @@ def ubahjin():
         print("Hanya Bandung Bondowoso yang dapat mengubah jin!")
 
 def bangun():
-    global usernames, usern, roles
+    global usernames, usern, roles, ids, pembuat, pasir, batu, air, jumlah, bahanamount
+    if usern == "null":
+        print("Lakukan login terlebih dahulu!")
+    else:
+        if roles[usernames.index(usern)] != "jin_pembangun":
+            print("Hanya jin pembangun yang dapat membangun candi!")
+        else:
+            if bahanamount == 1:
+                print("Bahan bangunan tidak mencukupi")
+                print("Candi tidak bisa dibangun!")
+            else:
+                sand = int(rng(1))
+                stone = int(rng(1))
+                water = int(rng(1))
+                jumlah[1] = int(jumlah[1])
+                jumlah[2] = int(jumlah[2])
+                jumlah[3] = int(jumlah[3])
+                if jumlah[1] < sand or jumlah[2] < stone or jumlah[3] < water:
+                    print("Bahan bangunan tidak mencukupi")
+                    print("Candi tidak bisa dibangun!")
+                else:
+                    print(f"Candi berhasil dibangun dan menggunakan {sand} pasir, {stone} batu, dan {water} air.")
+                    print("Sisa candi yang perlu dibangun: .")
+                    jumlah[1] -= sand
+                    jumlah[2] -= stone
+                    jumlah[3] -= water
+
 
 def kumpul():
     global usernames, usern, roles, nama, jumlah
-    if roles[usernames.index(usern)] != "jin_pengumpul":
-        print("Hanya jin pengumpul yang dapat mengumpulkan bahan bangunan!")
+    if usern == "null":
+        print("Lakukan login terlebih dahulu!")
     else:
-        if "pasir" not in nama:
-            nama.append("pasir")
-            jumlah.append(int(0))
-            deskripsi.append("")
-        if "batu" not in nama:
-            nama.append("batu")
-            jumlah.append(int(0))
-            deskripsi.append("")
-        if "air" not in nama:
-            nama.append("air")
-            jumlah.append(int(0))
-            deskripsi.append("")
-        sand = int(rng(0))
-        stone = int(rng(0))
-        water = int(rng(0))
-        print(f"Jin menemukan {sand} pasir, {stone} batu, dan {water} air.")
-        jumlah[1] = int(jumlah[1])
-        jumlah[2] = int(jumlah[2])
-        jumlah[3] = int(jumlah[3])
-        jumlah[1] += sand
-        jumlah[2] += stone
-        jumlah[3] += water
+        if roles[usernames.index(usern)] != "jin_pengumpul":
+            print("Hanya jin pengumpul yang dapat mengumpulkan bahan bangunan!")
+        else:
+            if "pasir" not in nama:
+                nama.append("pasir")
+                jumlah.append(int(0))
+                deskripsi.append("")
+            if "batu" not in nama:
+                nama.append("batu")
+                jumlah.append(int(0))
+                deskripsi.append("")
+            if "air" not in nama:
+                nama.append("air")
+                jumlah.append(int(0))
+                deskripsi.append("")
+            sand = int(rng(0))
+            stone = int(rng(0))
+            water = int(rng(0))
+            print(f"Jin menemukan {sand} pasir, {stone} batu, dan {water} air.")
+            jumlah[1] = int(jumlah[1])
+            jumlah[2] = int(jumlah[2])
+            jumlah[3] = int(jumlah[3])
+            jumlah[1] += sand
+            jumlah[2] += stone
+            jumlah[3] += water
 
 
 
