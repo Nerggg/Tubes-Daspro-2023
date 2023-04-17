@@ -7,6 +7,7 @@ import functions.f04 as f04
 import functions.f05 as f05
 import functions.f06 as f06
 import functions.f07 as f07
+import functions.f08 as f08
 import functions.f14 as f14
 import utils.mysplit as spl
 import utils.myappend as app
@@ -42,7 +43,11 @@ while True:
         (candi, bahan) = f06.bangun(usern, user, candi, bahan)
     elif opsi == "kumpul":
         bahan = f07.kumpul(usern, user, bahan)
+    elif opsi == "batchkumpul":
+        bahan = f08.batchkumpul(user, bahan)
+ #   elif opsi == "batchbangun":
+
     elif opsi == "save":
         f14.save(user, candi, bahan)
     elif opsi == "print":
-        print(candi)
+        print(bahan)
