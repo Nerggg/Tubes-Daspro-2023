@@ -45,9 +45,10 @@ while True:
         bahan = f07.kumpul(usern, user, bahan)
     elif opsi == "batchkumpul":
         bahan = f08.batchkumpul(user, bahan)
- #   elif opsi == "batchbangun":
-
+    elif opsi == "batchbangun":
+        (candi, bahan) = f08.batchbangun(user, candi, bahan)
     elif opsi == "save":
         f14.save(user, candi, bahan)
     elif opsi == "print":
         print(bahan)
+        print(candi)
