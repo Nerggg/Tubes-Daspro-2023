@@ -47,7 +47,7 @@ def batchkumpul(user, bahan):
             sand += int(rng.rng(0))
             stone += int(rng.rng(0))
             water += int(rng.rng(0))
-        print(f"Jin menemukan total {sand} pasir, {stone}, batu, dan {water} air.")
+        print(f"Jin menemukan total {sand} pasir, {stone} batu, dan {water} air.")
         bahan[0][idxpasir][2] = int(bahan[0][idxpasir][2]) + sand
         bahan[0][idxbatu][2] = int(bahan[0][idxbatu][2]) + stone
         bahan[0][idxair][2] = int(bahan[0][idxair][2]) + water

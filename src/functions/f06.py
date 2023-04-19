@@ -53,7 +53,7 @@ def bangun(usern, user, candi, bahan):
                 print("Candi tidak bisa dibangun!")
             else:
                 print(f"Candi berhasil dibangun dan menggunakan {sand} pasir, {stone} batu, dan {water} air.")
-                print("Sisa candi yang perlu dibangun: .")
+                print(f"Sisa candi yang perlu dibangun: {100 - candi[1][0]}.")
                 bahan[0][idxpasir][2] = int(bahan[0][idxpasir][2]) - sand
                 bahan[0][idxbatu][2] = int(bahan[0][idxbatu][2]) - stone
                 bahan[0][idxair][2] = int(bahan[0][idxbatu][2]) - water

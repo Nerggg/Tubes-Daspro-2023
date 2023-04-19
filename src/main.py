@@ -9,6 +9,7 @@ import functions.f06 as f06
 import functions.f07 as f07
 import functions.f08 as f08
 import functions.f09 as f09
+import functions.f10 as f10
 import functions.f14 as f14
 import utils.mysplit as spl
 import utils.myappend as app
@@ -50,6 +51,8 @@ while True:
         (candi, bahan) = f08.batchbangun(user, candi, bahan)
     elif opsi == "laporanjin":
         f09.laporanjin(usern, user, candi, bahan)
+    elif opsi == "laporancandi":
+        f10.laporancandi(usern, candi)
     elif opsi == "save":
         f14.save(user, candi, bahan)
     elif opsi == "print":
