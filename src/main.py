@@ -8,6 +8,7 @@ import functions.f05 as f05
 import functions.f06 as f06
 import functions.f07 as f07
 import functions.f08 as f08
+import functions.f09 as f09
 import functions.f14 as f14
 import utils.mysplit as spl
 import utils.myappend as app
@@ -23,7 +24,7 @@ with open ('bahan_bangunan.csv', 'r') as csv:
     bahan = spl.mysplit(csv.read())
 
 # Deklarasi username kosong
-usern = str("null")
+usern = str("Bondowoso")
 
 while True:
 
@@ -47,8 +48,9 @@ while True:
         bahan = f08.batchkumpul(user, bahan)
     elif opsi == "batchbangun":
         (candi, bahan) = f08.batchbangun(user, candi, bahan)
+    elif opsi == "laporanjin":
+        f09.laporanjin(usern, user, candi, bahan)
     elif opsi == "save":
         f14.save(user, candi, bahan)
     elif opsi == "print":
         print(bahan)
-        print(candi)

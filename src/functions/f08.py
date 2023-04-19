@@ -1,17 +1,6 @@
 import random
-
-def myappend(target, li):
-    temp = [["" for i in range (target[1][1])] for j in range (target[1][0]+1)]
-    temp = [temp, [target[1][0]+1,target[1][1]]]
-    for i in range (target[1][0]):
-        for j in range (target[1][1]):
-            temp[0][i][j] = target[0][i][j]
-    for i in range (target[1][1]):
-        temp[0][target[1][0]][i] = li[i]
-    return temp
-
-def rng(n):
-    return random.randint(n,5)
+from utils import myappend as app
+from utils import rng
 
 def batchkumpul(user, bahan):
     count = int(0)
@@ -40,24 +29,24 @@ def batchkumpul(user, bahan):
                 idxair = i
                 idxtemp -= 1
         if not pasirada:
-            bahan = myappend(bahan, ["pasir", "Pasir digunakan untuk membangun candi", 0])
+            bahan = app.myappend(bahan, ["pasir", "Pasir digunakan untuk membangun candi", 0])
             idxpasir = 3 - idxtemp
             idxtemp -= 1
         if not batuada:
-            bahan = myappend(bahan, ["batu", "Batu digunakan untuk membangun candi", 0])
+            bahan = app.myappend(bahan, ["batu", "Batu digunakan untuk membangun candi", 0])
             idxbatu = 3 - idxtemp
             idxtemp -= 1
         if not airada:
-            bahan = myappend(bahan, ["air", "Air digunakan untuk membangun candi", 0])
+            bahan = app.myappend(bahan, ["air", "Air digunakan untuk membangun candi", 0])
             idxair = 3 - idxtemp
             idxtemp -= 1
         sand = int(0)
         stone = int(0)
         water = int(0)
         for i in range (count):
-            sand += int(rng(0))
-            stone += int(rng(0))
-            water += int(rng(0))
+            sand += int(rng.rng(0))
+            stone += int(rng.rng(0))
+            water += int(rng.rng(0))
         print(f"Jin menemukan total {sand} pasir, {stone}, batu, dan {water} air.")
         bahan[0][idxpasir][2] = int(bahan[0][idxpasir][2]) + sand
         bahan[0][idxbatu][2] = int(bahan[0][idxbatu][2]) + stone
@@ -70,7 +59,7 @@ def batchbangun(user, candi, bahan):
     for i in range (user[1][0]):
         if user[0][i][2] == "jin_pembangun":
             count += 1
-            pembangun = myappend(pembangun, [user[0][i][0]])
+            pembangun = app.myappend(pembangun, [user[0][i][0]])
     if count == 0:
         print("Bangun gagal. Anda tidak punya jin pembangun. Silahkan summon terlebih dahulu.")
     else:
@@ -106,10 +95,10 @@ def batchbangun(user, candi, bahan):
             bahantemp = [0, 0, 0]
             jumlah = int(0)
             for i in range (count):
-                sand = int(rng(1))
-                stone = int(rng(1))
-                water = int(rng(1))
-                canditemp = myappend(canditemp, [candi[1][0], pembangun[0][i+1][0], sand, stone, water])
+                sand = int(rng.rng(1))
+                stone = int(rng.rng(1))
+                water = int(rng.rng(1))
+                canditemp = app.myappend(canditemp, [candi[1][0] + i, pembangun[0][i+1][0], sand, stone, water])
                 bahantemp[0] += sand
                 bahantemp[1] += stone
                 bahantemp[2] += water
