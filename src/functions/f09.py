@@ -59,7 +59,7 @@ def laporanjin(usern, user, candi, bahan):
             if pembangun[0][i][1] >= pembangun[0][idxrajin][1]:
                 idxrajin = i
         for i in range (0, pembangun[1][0]):
-            if pembangun[0][i][1] <= pembangun[0][idxrajin][1]:
+            if pembangun[0][i][1] <= pembangun[0][idxmalas][1]:
                 idxmalas = i
         print(f"\n> Total Jin: {user[1][0] - 3}")
         print(f"> Total Jin Pengumpul: {totalkumpul}")

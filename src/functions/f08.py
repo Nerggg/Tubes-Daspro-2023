@@ -2,7 +2,7 @@ import random
 from utils import myappend as app
 from utils import rng
 
-def batchkumpul(user, bahan):
+def batchkumpul(usern, user, bahan):
     count = int(0)
     for i in range (user[1][0]):
         if user[0][i][2] == "jin_pengumpul":
@@ -53,7 +53,7 @@ def batchkumpul(user, bahan):
         bahan[0][idxair][2] = int(bahan[0][idxair][2]) + water
     return bahan
 
-def batchbangun(user, candi, bahan):
+def batchbangun(usern, user, candi, bahan):
     count = int(0)
     pembangun = [[["pembangun"]], [1,1]]
     for i in range (user[1][0]):

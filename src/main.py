@@ -10,24 +10,27 @@ import functions.f07 as f07
 import functions.f08 as f08
 import functions.f09 as f09
 import functions.f10 as f10
+import functions.f13 as f13
 import functions.f14 as f14
 import utils.mysplit as spl
 import utils.myappend as app
 import utils.rng as rng
 
-with open ('user.csv', 'r') as csv:
-    user = spl.mysplit(csv.read())
+(proceed, address) = f13.load()
 
-with open ('candi.csv', 'r') as csv:
-    candi = spl.mysplit(csv.read())
+if proceed:
+    with open (address + '\\user.csv', 'r') as csv:
+        user = spl.mysplit(csv.read())
 
-with open ('bahan_bangunan.csv', 'r') as csv:
-    bahan = spl.mysplit(csv.read())
+    with open (address + '\\candi.csv', 'r') as csv:
+        candi = spl.mysplit(csv.read())
 
-# Deklarasi username kosong
-usern = str("Bondowoso")
+    with open (address + '\\bahan_bangunan.csv', 'r') as csv:
+        bahan = spl.mysplit(csv.read())
+    # Deklarasi username kosong
+    usern = str("null")
 
-while True:
+while proceed:
 
     opsi = input(">>> ")
 
@@ -46,14 +49,12 @@ while True:
     elif opsi == "kumpul":
         bahan = f07.kumpul(usern, user, bahan)
     elif opsi == "batchkumpul":
-        bahan = f08.batchkumpul(user, bahan)
+        bahan = f08.batchkumpul(usern, user, bahan)
     elif opsi == "batchbangun":
-        (candi, bahan) = f08.batchbangun(user, candi, bahan)
+        (candi, bahan) = f08.batchbangun(usern, user, candi, bahan)
     elif opsi == "laporanjin":
         f09.laporanjin(usern, user, candi, bahan)
     elif opsi == "laporancandi":
         f10.laporancandi(usern, candi)
     elif opsi == "save":
         f14.save(user, candi, bahan)
-    elif opsi == "print":
-        print(bahan)
