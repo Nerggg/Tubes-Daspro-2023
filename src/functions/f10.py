@@ -12,7 +12,7 @@ def hitungharga(li):
     return 10000 * int(li[2]) + 15000 * int(li[3]) + 7500 * int(li[4])
 def laporancandi(usern, candi):
     if usern != "Bondowoso":
-        print("Laporan jin hanya dapat diakses oleh akun Bandung Bondowoso.")
+        print("Laporan candi hanya dapat diakses oleh akun Bandung Bondowoso.")
     else:
         (sand, stone, water) = jumlahbahan(candi)
         idxmahal = int(1)

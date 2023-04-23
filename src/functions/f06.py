@@ -56,7 +56,7 @@ def bangun(usern, user, candi, bahan):
                 print(f"Sisa candi yang perlu dibangun: {100 - candi[1][0]}.")
                 bahan[0][idxpasir][2] = int(bahan[0][idxpasir][2]) - sand
                 bahan[0][idxbatu][2] = int(bahan[0][idxbatu][2]) - stone
-                bahan[0][idxair][2] = int(bahan[0][idxbatu][2]) - water
+                bahan[0][idxair][2] = int(bahan[0][idxair][2]) - water
                 li = [candi[1][0], usern, sand, stone, water]
                 candi = app.myappend(candi, li)
     return (candi, bahan)
