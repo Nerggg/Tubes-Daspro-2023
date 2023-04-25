@@ -28,7 +28,7 @@ if proceed:
     with open (address + '\\bahan_bangunan.csv', 'r') as csv:
         bahan = spl.mysplit(csv.read())
     # Deklarasi username kosong
-    usern = str("null")
+    usern = str("Bondowoso")
 
 while proceed:
 
