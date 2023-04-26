@@ -3,7 +3,7 @@ from utils import myappend as app
 from utils import rng
 
 def batchkumpul(usern, user, bahan):
-    if usern == "null":
+    if usern == "":
         print("Lakukan login terlebih dahulu!")
     else:
         for i in range (user[1][0]):
@@ -64,7 +64,7 @@ def batchkumpul(usern, user, bahan):
     return bahan
 
 def batchbangun(usern, user, candi, bahan):
-    if usern == "null":
+    if usern == "":
         print("Lakukan login terlebih dahulu!")
     else:
         for i in range (user[1][0]):
@@ -72,7 +72,7 @@ def batchbangun(usern, user, candi, bahan):
                 index = i
                 break
         if user[0][index][2] != "jin_pembangun":
-            print("Hanya jin pembangun yang dapat melakukan batch kumpul!")
+            print("Hanya jin pembangun yang dapat melakukan batch bangun!")
         else:
             count = int(0)
             pembangun = [[["pembangun"]], [1,1]]

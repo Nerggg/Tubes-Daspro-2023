@@ -1,6 +1,10 @@
+# fungsi ini menerima 'usern' sebagai username pemain saat itu
 def logout(usern):
-    if usern == "null":
+
+    # jika username kosong
+    if usern == "":
         print("Anda belum login!")
-    else:
+        
+    else: # jika username tidak kosong
         print("Logout berhasil!")
-    return "null"
+    return "" # dan kembalikan username kosong karena pemain sudah logout

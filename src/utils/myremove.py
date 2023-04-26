@@ -7,14 +7,12 @@ def myremove_user(target, li):
     temp = [temp, [li[1][0]-1,li[1][1]]]
 
     # pindahkan semua elemen dari 'li' ke 'temp'
-    indicator = int(0)
+    idx = int(0)
     for i in range (li[1][0]):
-        if li[0][i][0] == target: # tetapi jika elemen tersebut adalah 'target'
-            indicator = int(1)
-            continue # maka elemen tersebut diskip dan tidak ikut dipindahkan
-        else:
-            for j in range (temp[1][1]):
-                temp[0][i - indicator][j] = li[0][i][j]
+        if li[0][i][0] != target: # jika nama pembuat candi tidak sama dengan 'target'
+            for j in range (temp[1][1]): # maka elemen tersebut dipindahkan ke 'temp'
+                temp[0][idx][j] = li[0][i][j]
+            idx += 1
 
     # mengembalikan 'temp' sebagai hasil
     return temp
@@ -40,7 +38,9 @@ def myremove_candi(target, li):
         if li[0][i][1] != target: # jika nama pembuat candi tidak sama dengan 'target'
             for j in range (li[1][1]): # maka elemen tersebut dipindahkan ke 'temp'
                 temp[0][idx][j] = li[0][i][j]
-                if idx > 0:
+                if idx > 0: # ini untuk penomoran id candi
                     temp[0][idx][0] = idx
             idx += 1
+            
+    # mengembalikan 'temp' sebagai hasil
     return temp

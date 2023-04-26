@@ -3,7 +3,7 @@ from utils import myappend as app
 from utils import rng
 
 def bangun(usern, user, candi, bahan):
-    if usern == "null":
+    if usern == "":
         print("Lakukan login terlebih dahulu!")
     else:
         for i in range (1, user[1][0]):

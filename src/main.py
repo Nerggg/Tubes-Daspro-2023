@@ -12,6 +12,7 @@ import functions.f09 as f09
 import functions.f10 as f10
 import functions.f13 as f13
 import functions.f14 as f14
+import functions.f15 as f15
 import utils.mysplit as spl
 import utils.myappend as app
 import utils.rng as rng
@@ -28,7 +29,7 @@ if proceed:
     with open (address + '\\bahan_bangunan.csv', 'r') as csv:
         bahan = spl.mysplit(csv.read())
     # Deklarasi username kosong
-    usern = str("null")
+    usern = str("")
 
 while proceed:
 
@@ -58,3 +59,5 @@ while proceed:
         f10.laporancandi(usern, candi)
     elif opsi == "save":
         f14.save(user, candi, bahan, address)
+    elif opsi == "help":
+        f15.help(usern, user)
