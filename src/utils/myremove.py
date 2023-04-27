@@ -41,6 +41,20 @@ def myremove_candi(target, li):
                 if idx > 0: # ini untuk penomoran id candi
                     temp[0][idx][0] = idx
             idx += 1
-            
+
     # mengembalikan 'temp' sebagai hasil
+    return temp
+
+def myremove_candi_idx(indeks, li):
+
+    temp = [["" for i in range (li[1][1])] for j in range (li[1][0]-1)]
+    temp = [temp, [li[1][0]-1,li[1][1]]]
+    one = int(0)
+    for i in range (temp[1][0]):
+        if i == indeks:
+            one = int(1)
+        for j in range (temp[1][1]):
+            temp[0][i][j] = li[0][i+one][j]
+            if i > 0: # ini untuk penomoran id candi
+                temp[0][i][0] = i
     return temp

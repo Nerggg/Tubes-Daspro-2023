@@ -10,6 +10,7 @@ import functions.f07 as f07
 import functions.f08 as f08
 import functions.f09 as f09
 import functions.f10 as f10
+import functions.f11 as f11
 import functions.f13 as f13
 import functions.f14 as f14
 import functions.f15 as f15
@@ -29,7 +30,7 @@ if proceed:
     with open (address + '\\bahan_bangunan.csv', 'r') as csv:
         bahan = spl.mysplit(csv.read())
     # Deklarasi username kosong
-    usern = str("")
+    usern = str("Roro")
 
 while proceed:
 
@@ -57,6 +58,8 @@ while proceed:
         f09.laporanjin(usern, user, candi, bahan)
     elif opsi == "laporancandi":
         f10.laporancandi(usern, candi)
+    elif opsi == "hancurkancandi":
+        candi = f11.hancurkancandi(usern, candi)
     elif opsi == "save":
         f14.save(user, candi, bahan, address)
     elif opsi == "help":
