@@ -45,16 +45,23 @@ def myremove_candi(target, li):
     # mengembalikan 'temp' sebagai hasil
     return temp
 
+# fungsi ini memiliki tujuan yang sama dengan fungsi myremove_candi
+# tetapi fungsi ini menerima 'indeks' sebagai indeks candi yang akan dihapus
+# dan matriks 'li' sebagai tempat candi berindeks 'indeks' akan dihapus
 def myremove_candi_idx(indeks, li):
-
+    
+    # deklarasi matriks yang memiliki satu elemen lebih sedikit daripada matriks 'li' yang kita beri nama 'temp'
     temp = [["" for i in range (li[1][1])] for j in range (li[1][0]-1)]
     temp = [temp, [li[1][0]-1,li[1][1]]]
+    
+    # pindahkan semua elemen dari 'li' ke 'temp'
     one = int(0)
     for i in range (temp[1][0]):
-        if i == indeks:
-            one = int(1)
+        if i == indeks: # tetapi jika kita telah berjumpa dengan indeks yang akan dihapus
+            one = int(1) # maka elemen tersebut akan di skip
         for j in range (temp[1][1]):
             temp[0][i][j] = li[0][i+one][j]
+            
             if i > 0: # ini untuk penomoran id candi
                 temp[0][i][0] = i
     return temp

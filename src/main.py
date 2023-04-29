@@ -1,3 +1,4 @@
+# import semua library yang digunakan untuk permainan
 import time
 import random
 import functions.f01 as f01
@@ -18,9 +19,14 @@ import utils.mysplit as spl
 import utils.myappend as app
 import utils.rng as rng
 
+# panggil fungsi 'load' untuk mendefinisikan lokasi dari file game
 (proceed, address) = f13.load()
 
+# jika 'proceed' bernilai true berarti permainan dijalankan
 if proceed:
+
+    # buka semua file data game
+    # dan simpan pada matriksnya masing-masing
     with open (address + '\\user.csv', 'r') as csv:
         user = spl.mysplit(csv.read())
 
@@ -29,9 +35,11 @@ if proceed:
 
     with open (address + '\\bahan_bangunan.csv', 'r') as csv:
         bahan = spl.mysplit(csv.read())
-    # Deklarasi username kosong
-    usern = str("Roro")
 
+    # deklarasi username kosong
+    usern = str("")
+
+# selama permainan dijalankan
 while proceed:
 
     opsi = input(">>> ")
