@@ -2,8 +2,8 @@ def help(usern, user): #Fungsi Help untuk membantu user berdasarkan akun yang di
     if usern == "": #Apabila tidak ada akun yang digunakan, akan memunculkan layar help untuk user yang belum masuk ke suatu akun
         print("===================== HELP =====================")
         print("")
-        print("1. Login: Masuk menggunakan akun")
-        print("2. Exit: Keluar dari program")
+        print("1. login: Masuk menggunakan akun")
+        print("2. exit: Keluar dari program")
     else:
         for i in range (user[1][0]):
             if user[0][i][0] == usern:

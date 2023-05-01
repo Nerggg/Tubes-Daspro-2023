@@ -79,7 +79,7 @@ def batchkumpul(usern, user, bahan):
                 water += int(rng.rng(0))
 
             # setelah itu kita simpan bahan-bahan yang telah dikumpulkan pada matriks 'bahan'
-            print(f"Jin menemukan total {sand} pasir, {stone} batu, dan {water} air.")
+            print(f"Jin menemukan total {sand} pasir, {stone} batu, dan {water} air.\n")
             bahan[0][idxpasir][2] = int(bahan[0][idxpasir][2]) + sand
             bahan[0][idxbatu][2] = int(bahan[0][idxbatu][2]) + stone
             bahan[0][idxair][2] = int(bahan[0][idxair][2]) + water
@@ -199,9 +199,9 @@ def batchbangun(usern, user, candi, bahan):
 
                 # jika jumlah candi sudah 100
                 if canditemp[1][0] == candi[1][0]:
-                    print("Tetapi tidak ada candi yang disimpan karena jumlah candi sudah mencapai batas maksimum.")
+                    print("Tetapi tidak ada candi yang disimpan karena jumlah candi sudah mencapai batas maksimum.\n")
                 elif jumlah > canditemp[1][0] - candi[1][0]:
-                    print(f"Tetapi yang disimpan hanya {canditemp[1][0] - candi[1][0]} candi karena jumlah candi sudah mencapai batas maksimum.")
+                    print(f"Tetapi yang disimpan hanya {canditemp[1][0] - candi[1][0]} candi karena jumlah candi sudah mencapai batas maksimum.\n")
 
                 # dan kita pindahkan 'canditemp' ke 'candi'
                 candi = canditemp

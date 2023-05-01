@@ -1,13 +1,14 @@
 # fungsi ini menerima matriks 'candi' yang berisi data candi
+# dan 'usern' sebagai username pemain saat itu
 def ayamberkokok(usern, candi):
 
     # jika username pemain bukan Roro
     if usern != "Roro":
         print("Hanya Roro yang dapat memanggil ayam!")
-         
+
         # mengembalikan 'True' agar permainan tidak berakhir
         return True
-        
+
     # jika username pemain adalah Roro
     else:
         print("\nKukuruyuk.. Kukuruyuk..\n")

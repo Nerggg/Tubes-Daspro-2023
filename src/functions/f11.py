@@ -10,7 +10,7 @@ def hancurkancandi(usern, candi):
                     print("\nCandi telah berhasil dihancurkan.")
                     candi = myr.myremove_candi_idx(hancurkan, candi)
                 elif opt == "n" or opt == "N":
-                    print("\n Candi tidak dihancurkan")
+                    print("\nCandi tidak dihancurkan.")
                 break
         else:
             print("Tidak ada candi dengan ID tersebut.")

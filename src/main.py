@@ -16,6 +16,7 @@ import functions.f12 as f12
 import functions.f13 as f13
 import functions.f14 as f14
 import functions.f15 as f15
+import functions.f16 as f16
 import utils.mysplit as spl
 import utils.myappend as app
 import utils.rng as rng
@@ -46,7 +47,7 @@ while proceed:
     opsi = input(">>> ")
 
     match opsi:
-        case "login":    
+        case "login":
             usern = f01.login(usern, user)
         case "logout":
             usern = f02.logout(usern)
@@ -76,3 +77,5 @@ while proceed:
             f14.save(user, candi, bahan, address)
         case "help":
             f15.help(usern, user)
+        case "exit":
+            proceed = f16.exit(user, candi, bahan, address)
