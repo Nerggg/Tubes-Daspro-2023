@@ -10,10 +10,8 @@ def exit(user, candi, bahan, address):
 
     # bertanya kepada pemain apakah ingin menyimpan game atau tidak
     # selama input tidak valid maka program akan terus bertanya kepada pemain
-    while True:
+    while opt != 'y' and opt != 'Y' and opt != 'n' and opt != 'N':
         opt = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N) ")
-        if opt == 'y' or opt == 'Y' or opt == 'n' or opt == 'N':
-            break
 
     if opt == 'y' or opt == 'Y':
         f14.save(user, candi, bahan, address) # kita panggil fungsi save
