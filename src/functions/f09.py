@@ -86,7 +86,6 @@ def laporanjin(usern, user, candi, bahan):
         # sekarang kita menentukan index dari jin terrajin dan jin termalas
         idxrajin = int(0)
         idxmalas = int(0)
-
         # dengan membandingkan banyak candi yang mereka bangun dengan loop
         for i in range (pembangun[1][0] - 1, -1, -1):
         # jika ada pembangun yang membangun lebih banyak candi dibandingkan jin dengan index terrajin

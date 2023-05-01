@@ -12,6 +12,7 @@ import functions.f08 as f08
 import functions.f09 as f09
 import functions.f10 as f10
 import functions.f11 as f11
+import functions.f12 as f12
 import functions.f13 as f13
 import functions.f14 as f14
 import functions.f15 as f15
@@ -44,31 +45,34 @@ while proceed:
 
     opsi = input(">>> ")
 
-    if opsi == "login":
-        usern = f01.login(usern, user)
-    elif opsi == "logout":
-        usern = f02.logout(usern)
-    elif opsi == "summonjin":
-        user = f03.summonjin(usern, user)
-    elif opsi == "hapusjin":
-        (user, candi) = f04.hapusjin(usern, user, candi)
-    elif opsi == "ubahjin":
-        user = f05.ubahjin(usern, user)
-    elif opsi == "bangun":
-        (candi, bahan) = f06.bangun(usern, user, candi, bahan)
-    elif opsi == "kumpul":
-        bahan = f07.kumpul(usern, user, bahan)
-    elif opsi == "batchkumpul":
-        bahan = f08.batchkumpul(usern, user, bahan)
-    elif opsi == "batchbangun":
-        (candi, bahan) = f08.batchbangun(usern, user, candi, bahan)
-    elif opsi == "laporanjin":
-        f09.laporanjin(usern, user, candi, bahan)
-    elif opsi == "laporancandi":
-        f10.laporancandi(usern, candi)
-    elif opsi == "hancurkancandi":
-        candi = f11.hancurkancandi(usern, candi)
-    elif opsi == "save":
-        f14.save(user, candi, bahan, address)
-    elif opsi == "help":
-        f15.help(usern, user)
+    match opsi:
+        case "login":    
+            usern = f01.login(usern, user)
+        case "logout":
+            usern = f02.logout(usern)
+        case "summonjin":
+            user = f03.summonjin(usern, user)
+        case "hapusjin":
+            (user, candi) = f04.hapusjin(usern, user, candi)
+        case "ubahjin":
+            user = f05.ubahjin(usern, user)
+        case "bangun":
+            (candi, bahan) = f06.bangun(usern, user, candi, bahan)
+        case "kumpul":
+            bahan = f07.kumpul(usern, user, bahan)
+        case "batchkumpul":
+            bahan = f08.batchkumpul(usern, user, bahan)
+        case "batchbangun":
+            (candi, bahan) = f08.batchbangun(usern, user, candi, bahan)
+        case "laporanjin":
+            f09.laporanjin(usern, user, candi, bahan)
+        case "laporancandi":
+            f10.laporancandi(usern, candi)
+        case "hancurkancandi":
+            candi = f11.hancurkancandi(usern, candi)
+        case "ayamberkokok":
+            proceed = f12.ayamberkokok(usern, candi)
+        case "save":
+            f14.save(user, candi, bahan, address)
+        case "help":
+            f15.help(usern, user)

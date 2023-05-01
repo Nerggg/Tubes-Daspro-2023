@@ -4,7 +4,7 @@ def login(usern, user):
 
     # validasi username apakah kosong atau tidak
     if usern != "": # jika username tidak kosong
-        print("Login gagal!")
+        print("\nLogin gagal!")
         print(f"Anda telah login dengan username {usern}, silahkan lakukan \"logout\" sebelum melakukan login kembali.") # berarti pemain sudah login ke akun lain dan harus logout terlebih dahulu
         return usern
 
@@ -30,14 +30,14 @@ def login(usern, user):
             passada = True # ubah 'passada' menjadi true
 
         if not userada: # jika username tidak ada
-            print("Username tidak terdaftar!")
+            print("\nUsername tidak terdaftar!")
             return ""
 
         elif userada and not passada: # jika username ada tetapi password salah
-            print("Password salah!")
+            print("\nPassword salah!")
             return ""
 
         else: # jika username ada dan password benar
-            print(f"Selamat datang, {usern}!")
+            print(f"\nSelamat datang, {usern}!")
             print("Masukkan command \"help\" untuk daftar command yang dapat kamu panggil.")
             return usern
