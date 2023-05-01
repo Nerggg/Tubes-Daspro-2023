@@ -6,11 +6,16 @@ from functions import f14
 # dan string 'address' yang berisi alamat lokasi file data game
 def exit(user, candi, bahan, address):
 
-    # bertanya kepada pemain apakah ingin menyimpan game atau tidak
-    opt = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N) ")
+    opt = str()
 
-    # jika ingin menyimpan game maka
-    if opt == 'y':
+    # bertanya kepada pemain apakah ingin menyimpan game atau tidak
+    # selama input tidak valid maka program akan terus bertanya kepada pemain
+    while True:
+        opt = input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (Y/N) ")
+        if opt == 'y' or opt == 'Y' or opt == 'n' or opt == 'N':
+            break
+
+    if opt == 'y' or opt == 'Y':
         f14.save(user, candi, bahan, address) # kita panggil fungsi save
 
     # mengembalikan 'false' agar program berhenti
